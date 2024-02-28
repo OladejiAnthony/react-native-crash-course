@@ -205,7 +205,25 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 
     Note in this project we used Expo Location - A library that provides access to reading geolocation information, polling current location or subscribing location update events from the device. npx expo install expo-location
     
-    Note in this project we kept and protected our API Keys with react-native-dotenv github repo.  npm i -D 
-react-native-dotenv
+    Note in this project we kept and protected our API Keys with react-native-dotenv github repo.  npm i -D react-native-dotenv
 
+-Custom Hooks:
 
+-Buttons:
+    A basic button component that should render nicely on any platform. Supports a minimal level of customization.
+    <Button
+        onPress={onPressLearnMore}
+        title="Learn More"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+    />
+
+-TouchableOpacity Buttons:
+    We use the <TouchableOpacity> component for buttons in React js.
+    TouchableOpacity is a wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it. E.g
+    <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={onPress}>
+        <Text>Press Here</Text>
+    </TouchableOpacity>
+    Note - The alternative for <TouchableOpacity> component is <TouchableWithoutFeedback> component which doesnt give a visual response.
+
+*Note - ensure you play with and practice extensively all the Core Components in the React Native docs to gain mastery.

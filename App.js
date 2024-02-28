@@ -5,6 +5,7 @@ import { useGetWeather } from './src/hooks/useGetWeather';
 import {NavigationContainer} from '@react-navigation/native';
 import Tabs from './src/components/tabs/Tabs';
 import ErrorItem from './src/components/ErrorItem';
+import OurButton from './src/demonstration/OurButton';
 
 
 const App = () => {
@@ -13,9 +14,7 @@ const App = () => {
 
  if(weather && weather.list ) {
     return (
-      <NavigationContainer>
-        <Tabs weather={weather} />
-      </NavigationContainer>
+      <OurButton />
     )
  }
 
