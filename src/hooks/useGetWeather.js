@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import * as Location from 'expo-location';
 import {WEATHER_API_KEY} from "@env"
 
-//const url = `api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}`
 
 export const useGetWeather = () => {
     const [isLoading, setIsLoading] = useState(true);
