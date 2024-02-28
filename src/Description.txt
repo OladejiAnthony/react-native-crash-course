@@ -1,0 +1,211 @@
+#Learn React-native by building a Weather API Application
+
+weather api link - https://openweathermap.org
+API Key - d14a0d4c81960381baa713ae16931d8a
+
+-React Native lets you create mobile apps for iOS and Android by using javaScript
+-In Mobile App Developmen, we have 2type's of App's: a.Native M-A   b.Hybrid M-A
+-In Native dev, you will create 2 individual application's: Swift or 0bjective C for iOS App and Java or Kotlin for Android App.
+    Native Apps give opportunities for fantastic user experiences. 
+    Native App dev is costly bcos u will have to create an App twice i.e iOS and Android. You will need two development teams for Native App builds.
+-In Hybrid dev, u will use just one Codebase which can/wil run on iOS and Android
+    Cordova and Ionic are examples of frameworks used to build Hybrid Aplications.
+    You only need one codebase and one programming language knowledge to build Hybrid Apps.
+    Traditional Hybrid Apps dont have gr8 user experiences. You essentially create web apps to run on a phone.
+    Traditional Hybrid Apps render components with webViews. WebViews render the website inside the application and the UX BECOMES RESTRICTED
+    But React Native app renders using REAL NATIVE UI COMPONENT'S as opposed to webviews.
+-React Native is an Hybrid Platform and the app renders using Real Native UI components. It is built with JavaScript.
+    The components in React Native renders natively without using webviews. And it enables us to use platform specific ui's and components.
+    React Native gives us a better User Experience.
+
+-Expo is an external platform that makes mobile app dev building, development, running easier and faster.
+    Expo saves us alot of time especially if you are just learning R-N.
+    Installing Android Studio and Xcode are the alternative to Expo. To use them, you have to ensure that simulator's and emulator's afe running.
+    When we use Xcode we can just run d app easily on our device. 
+-Installation:
+1. download node
+2. install Expo-cli: npm instal -g expo-cli
+3. npx create-expo-app Weather-App
+4. cd WeatherApp
+5. npm start or expo start
+6. npm install eslint --save-dev
+7. npm init @eslint/config
+8. npm install @react-native-community/eslint-config --save-dev
+9. npm install --save-dev --save-exact prettier
+10. touch .prettierrc.js
+11. Configure eslint and run it: npm run lint
+12. press "j" in your cmd to open debugger in browser
+
+
+  #Setting up simulator(iOS Device):
+  1. On react native docs, Setting up dev Environment page
+  2. Go to React Native CLI Quickstart
+  3. install Watchman
+  4. Install Ruby Version Manager(RVM) : ruby --version, then, 
+  5. Install Xcode from AppStore(it sets up simulators for you)
+  6. Install CocoaPods
+  7. npm uninstall -g react-native-cli @react-native-community/cli
+  8. npx react-native init awesomeProject
+  9. cd swesomeProject
+  8. npx react-native start(runs metro bundler)
+  9. npx react-native run ios(launches simulator)
+  
+
+  #Setting up Simulator (Andriod Studio)
+  1. download and install Android Studio2. www.developer.android.com/studio
+  2. set up emulator in Android studio(open ADD and select more actions, then Virtual Device Manager i.e select configure)
+  3. create device and lauch emulator (to install on cmd, type the fflg: emulator -avd avd_name)
+  4. npx react-native run android
+  5. Check running on Device page in Reacct Native docs, to run it on ur device
+
+
+-React Native Core Components amd Native Components:
+    In Mobile App dev, each platform have a set of Native Components, but React Native bridges the gap(read more on R-N doc's)
+    R-N Native components: <View>, <Text>, <Image>, <ScrollView>, <TextInput> <Button> etc
+-JSX(JavaScript and XML)
+    We use JSX to write React Native codes.
+    We use JSX to create elements and JS codes can be written in it.
+
+-Directories: 
+    In React Native, you are the one that will create your "src" folder by yourself, so that you can put your components into it.
+    
+-App Layout:
+    In React Native we dont fix our entire App Layout style misbehaviour with margins and paddings really, because we know we are building for Android and iOS.
+    That it looks well on Android devices after adding margin to it doesn't mean it will look well on iOS devices.
+    So in R-N we use a component to fix layout issues: The <SafeAreaView>
+    Note - using expo-constants on <SafeAreaView> component helps our layout by applying padding at Android devices
+    Using <SafeAreaView> component alone only affects iOS devices not Android devices.
+
+    In React Native builds, positioning and layout is done using Flexbox only.
+    Flexbox is designed to provide a consistent layout on different screen sizes.
+    You will normally use a combination of flexDirection, alignItems, and justifyContent to achieve the right layout.
+    Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. 
+    React Native Flexbox defaults are actually different i.e flexDirection defaulting to column instead of row, 
+    alignContent defaulting to flex-start instead of stretch, flexShrink defaulting to 0 instead of 1, 
+    the flex parameter only supporting a single number.
+    #The Flex Property:
+      The "flex" property will define how your items are going to “fill” over the available space along your main axis. 
+      Space will be divided according to each element's flex property.
+      In the following example; the red, orange, and green views are all children in the container view that has flex: 1 set. 
+      The red view uses flex: 1 , the orange view uses flex: 2, and the green view uses flex: 3 . So we have 1+2+3 = 6.
+      This means that the red view will get 1/6 of the space, the orange 2/6 of the space, and the green 3/6 of the space.
+    #Read more on "Layout with Flexbox" in the R-N Docs.
+
+-Styling:
+    In React Native we dont have access to standard css, instead we use a javaScript object.
+    With React Native, you style your application using JavaScript. 
+    All of the core components accept a prop named "style" where you define your css property. 
+    The style "names" and "values" usually match how CSS works on the web, except that the names are written using camel casing, e.g. backgroundColor rather than background-color.
+    We use camel-casing for naming our CSS properties e.g fontSize, backgroundColor etc, unlike regular css way i.e font-size etc
+    In R-N JavaScript OBJECT STYLING, here we use the <StyleSheet> component and API from React Native
+    E.g const styles = StyleSheet.create({}). 
+    Using the JavaScript object styling method, we are able to define all our styles in onwe sheet.
+    Note - its always good to define our CSS stylesheet object before we export our component.
+    In INLINE STYLING method, the styles are used as we create a componet. E.g <View style={{fontSize: "red"}}></View>
+    Note - Check "View Style Props" page in R-N docs to better see how to use the style props.
+    Note - In React Native, when we have too many identical styles in the particular stylesheet of a component, by using an Array containing the identical styles. We will be able to pass multiple styles to the style prop by using Array notation. This helps to keep our codes as readable and clean as possible. Whereas on the web(React js), you will have to use Multiple Classnames as usual.(Note we use this in themes too that many components will use.) E.g In your City.js file; we have style={[styles.cityName, styles.cityText]} - Two styles properties attached to one component using Array Notation
+
+-Dimensions:
+    All dimensions in React Native are unitless, we call them Density Independent Pixel's.
+
+-Flexbox (margin and Paddding) :
+      The "flex" property will define how your items are going to “fill” over the available space along your main axis. 
+      Space will be divided according to each element's flex property.
+      In the following example; the red, orange, and green views are all children in the container view that has flex: 1 set. 
+      The red view uses flex: 1 , the orange view uses flex: 2, and the green view uses flex: 3 . So we have 1+2+3 = 6.
+      This means that the red view will get 1/6 of the space, the orange 2/6 of the space, and the green 3/6 of the space.
+   Note - We can only apply one number each to each flex-box property e.g marginRight: 25, paddingLeft: 15, marginBottom: 5 etc
+   unlike our regular css that we can do padding: 5px 3px 6px 7px;
+
+
+-Icons:
+    npm install react-native-vector-icons
+    Note - if you are using expo, you dpnt have to install this package manually, it comes with Expo installation automatically.
+    Search - icons.expo.fyi on google and use import {} from  "@expo/vector-icons"
+
+-List's: 
+    Because of the small amount of screen size, we have 3 Type's of List's in React Native; 1. FlatList 2. SectionList 3. Virtualized List
+    Only use Virtualized Lists when u need a great amount of Flexibility.
+    In R-N Lists, our list items are put into either Arrays variables or Array(containing objects) variables inorder to display them for users to see.
+    a. Flatlist - it is like the standard List. we use it to render the basic flat lists.
+        In FlatList, two props are the most required to be used: "data"(you put your variable) and "renderItem"(you render your list element)!
+        Data must be an Array.
+        RenderItem displays the list element to the user.
+
+    b. SectionList - we use this when we need a list to be broken up into section's.
+        We use this when we have a collection of data we want to display to our user which will be displayed in sections.
+        Note - In SectionList, you must pass an array of objects as your data to be rendered on the screen, 
+        In SectionList, two props are the most required to be used: "sections"(you put your variable) and "renderItem"(you render your list item)!
+        Data must be an Array of Objects.
+        RenderItem displays the list element to the user.
+        #Check R-N doc's to better understand List in React Native.
+
+-Images:
+    We have 2major types of Images in R-N: a.Static/Local Images  b. Network Images c, 
+        Static contents are stored in the assets folder.
+        In Network images- we load the images from a uri object e.g source-={{uri: ""}}, or a uri-data object unlike Local images whereby you load it directly from your PC.
+        We majorly use the Network Images for Data Fetching.
+        #Network Images -
+        a. you must set image  height set
+        b. when sizing images, you can have to set a fixed a height and width or set aspect ratio with d height and/or the width.
+        c. Be mindful of storage sizes when u are using static images
+        
+        Note - you can use the <ImageBackground> component, which has the same props as <Image>, and add whatever children to it you would like to layer on top of it.
+
+-Props:
+    Props is the same in React Js and React Native.
+    Props are used to pass data from parent to child or from one component to another.
+    Prop is the short for "property".
+    Props are the properties found in an Object{}.
+    Props promote component reusability.
+    Props are immuatble which means they cant be changed once component is craeted.
+    We can use props to customize our components.
+    Note- The core components(View, Text, Image, Button, FlatList, TextInput etc) in React Native always come with props that you can to customize each of them.
+
+-Folder Structure:
+    In React Native we have Screens folder(containing your pages) and Components folder(containing ur reusable components).
+
+-Navigation: 
+    When u are building web apps, we use anchor tag's for navigation. The user clicks on a link or butto n to navigate to any page/screen.
+    In Mobile App's thats not possible, because we only have one screen. 
+    In React Native, we use the component called Navigator to navigate between Screens. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator. In R-N, there is no built in Navigation, so we use libraries to add navigation to our app. Its either you use a. React Navigation or b. React Native Navigation.
+    Note - React Navigation is the most popular navigation library in R-N ecosystem, React Navigation provides a straightforward navigation solution, with the ability to present common "stack" navigation and "tabbed" navigation patterns on both Android and iOS. It is built into Expo cli.(but to use React Native Navigation, you will have to eject your App from Expo or craete your app without using Expo). 
+    #visit https://reactnavigation.org/ to understand better,
+    #visit https://reactnavigation.org/docs/bottom-tab-navigator/
+        OR
+
+    first, npm install @react-navigation/native 
+    second, npx expo install react-native-screens react-native-safe-area-context
+    third, npm install @react-navigation/native-stack or
+    third, npm install @react-navigation/bottom-tabs
+
+    Note - there are two types of Navigators u can use in your APP: a. Tab naviagtor b. Native Stack navigator
+
+    #Customize React Navigation - https://reactnavigation.org/docs/
+    a. In our Bottom Tab Navigation, we set the "Active and Inactive Color" of our Tab icons using the "screenOptions" prop in our <Tab.Navigator /> component, with the "tabBarActiveTintColor" property and we use the "tabBarIcon" prop in our <Tab.Screen /> component to focus on them.
+        #Read more on props for customizing React Navigations on https://reactnavigation.org/docs/tab-based-navigation#customizing-the-appearance
+    b. We Styled (set background color, fontsize etc) the HeadBar and TabBar using "tabBarStyle", "headerStyle" properties etc
+        #Read more - https://reactnavigation.org/docs/headers
+    
+    c. Extract your Tabs into a separate file called <Tabs /> and import into App.js file.
+   
+
+-DYNAMIC:
+    Making our app dynamic. Changing its functionality from static to dynamic.(Making it interactive)
+    By using Hooks e.g useState() and useEffect hook()
+
+-Data Fetching:
+ a. Loading States - react native Activity Indicator core component is used to display a circular loading indicator in React Native. And we can cutomize the size, color properties of the spinner. We use the useState() hook to sets its loading state. Then use conditional Rendering methods in React Native to set it.
+ b. Fetching data - 
+    #We use Netwoking as a term for data fetching in react native. Read more on RN Docs.
+    Many mobile apps need to load resources from a remote URL. You may want to make a POST request to a REST API, or you may need to fetch a chunk of static content from another server.
+    1. Using Fetch - React Native provides the Fetch API for your networking needs. Fetch will seem familiar if you have used XMLHttpRequest or other networking APIs before. You may refer to MDN's guide on Using Fetch for additional information.
+    2. Using Async Await syntax
+    3. Other third part libraries - The XMLHttpRequest API is built into React Native. This means that you can use third party libraries such as frisbee or axios that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
+
+    Note in this project we used Expo Location - A library that provides access to reading geolocation information, polling current location or subscribing location update events from the device. npx expo install expo-location
+    
+    Note in this project we kept and protected our API Keys with react-native-dotenv github repo.  npm i -D 
+react-native-dotenv
+
+
