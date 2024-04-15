@@ -7,6 +7,8 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 -In Mobile App Development, we have 2type's of App's: 
     a.Native M-A   
     b.Hybrid M-A
+
+    
 -In Native dev, you will create 2 individual application's using Swift or 0bjective C for iOS App & Java or Kotlin for Android App.
     Native Apps give opportunities for fantastic user experiences. 
     Native App dev is costly bcos u will have to create an App twice i.e iOS and Android. You will need two development teams for Native App builds.
