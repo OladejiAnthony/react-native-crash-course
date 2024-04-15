@@ -4,11 +4,13 @@ weather api link - https://openweathermap.org
 API Key - d14a0d4c81960381baa713ae16931d8a
 
 -React Native lets you create mobile apps for iOS and Android by using javaScript
--In Mobile App Developmen, we have 2type's of App's: a.Native M-A   b.Hybrid M-A
--In Native dev, you will create 2 individual application's: Swift or 0bjective C for iOS App and Java or Kotlin for Android App.
+-In Mobile App Development, we have 2type's of App's: 
+    a.Native M-A   
+    b.Hybrid M-A
+-In Native dev, you will create 2 individual application's using Swift or 0bjective C for iOS App & Java or Kotlin for Android App.
     Native Apps give opportunities for fantastic user experiences. 
     Native App dev is costly bcos u will have to create an App twice i.e iOS and Android. You will need two development teams for Native App builds.
--In Hybrid dev, u will use just one Codebase which can/wil run on iOS and Android
+-In Hybrid dev, u will use just one Codebase which can/will run on iOS and Android.
     Cordova and Ionic are examples of frameworks used to build Hybrid Aplications.
     You only need one codebase and one programming language knowledge to build Hybrid Apps.
     Traditional Hybrid Apps dont have gr8 user experiences. You essentially create web apps to run on a phone.
@@ -20,7 +22,7 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 
 -Expo is an external platform that makes mobile app dev building, development, running easier and faster.
     Expo saves us alot of time especially if you are just learning R-N.
-    Installing Android Studio and Xcode are the alternative to Expo. To use them, you have to ensure that simulator's and emulator's afe running.
+    Installing Android Studio and Xcode are the alternative to Expo. To use them, you have to ensure that simulator's and emulator's are running.
     When we use Xcode we can just run d app easily on our device. 
 -Installation:
 1. download node
