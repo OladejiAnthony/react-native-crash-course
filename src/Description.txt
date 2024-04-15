@@ -8,7 +8,7 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     a.Native M-A   
     b.Hybrid M-A
 
-    
+
 -In Native dev, you will create 2 individual application's using Swift or 0bjective C for iOS App & Java or Kotlin for Android App.
     Native Apps give opportunities for fantastic user experiences. 
     Native App dev is costly bcos u will have to create an App twice i.e iOS and Android. You will need two development teams for Native App builds.
@@ -41,7 +41,7 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 12. press "j" in your cmd to open debugger in browser
 
 
-  #Setting up simulator(iOS Device):
+  #Setting up Emuulator(iOS Device):
   1. On react native docs, Setting up dev Environment page
   2. Go to React Native CLI Quickstart
   3. install Watchman
@@ -65,7 +65,8 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 
 -React Native Core Components amd Native Components:
     In Mobile App dev, each platform have a set of Native Components, but React Native bridges the gap(read more on R-N doc's)
-    R-N Native components: <View>, <Text>, <Image>, <ScrollView>, <TextInput> <Button> etc
+    R-N Native core components: <View>, <Text>, <Image>, <ScrollView>, <TextInput> <Button> etc
+
 -JSX(JavaScript and XML)
     We use JSX to write React Native codes.
     We use JSX to create elements and JS codes can be written in it.
@@ -74,19 +75,20 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     In React Native, you are the one that will create your "src" folder by yourself, so that you can put your components into it.
     
 -App Layout:
-    In React Native we dont fix our entire App Layout style misbehaviour with margins and paddings really, because we know we are building for Android and iOS.
+    In React Native we dont fix our entire App Layout style misbehaviour with "margins" and "paddings" really, because we know we are building for Android and iOS.
     That it looks well on Android devices after adding margin to it doesn't mean it will look well on iOS devices.
-    So in R-N we use a component to fix layout issues: The <SafeAreaView>
-    Note - using expo-constants on <SafeAreaView> component helps our layout by applying padding at Android devices
-    Using <SafeAreaView> component alone only affects iOS devices not Android devices.
+    So in R-N we use "a Component" to fix Layout issues: The <SafeAreaView>
+        Note - using "expo-constants" on <SafeAreaView> component helps our Layout by applying padding at Android devices
+        Using <SafeAreaView> component alone only affects iOS devices not Android devices.
 
-    In React Native builds, positioning and layout is done using Flexbox only.
-    Flexbox is designed to provide a consistent layout on different screen sizes.
+    In React Native builds, Positioning and Layout is done using "CSS Flexbox" only.
+    "Flexbox" is designed to provide a consistent layout on different screen sizes.
     You will normally use a combination of flexDirection, alignItems, and justifyContent to achieve the right layout.
     Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. 
     React Native Flexbox defaults are actually different i.e flexDirection defaulting to column instead of row, 
     alignContent defaulting to flex-start instead of stretch, flexShrink defaulting to 0 instead of 1, 
     the flex parameter only supporting a single number.
+
     #The Flex Property:
       The "flex" property will define how your items are going to “fill” over the available space along your main axis. 
       Space will be divided according to each element's flex property.
@@ -98,14 +100,14 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 -Styling:
     In React Native we dont have access to standard css, instead we use a javaScript object.
     With React Native, you style your application using JavaScript. 
-    All of the core components accept a prop named "style" where you define your css property. 
+    All of the Core Components accept a prop named "style" where you define your css property. 
     The style "names" and "values" usually match how CSS works on the web, except that the names are written using camel casing, e.g. backgroundColor rather than background-color.
     We use camel-casing for naming our CSS properties e.g fontSize, backgroundColor etc, unlike regular css way i.e font-size etc
     In R-N JavaScript OBJECT STYLING, here we use the <StyleSheet> component and API from React Native
     E.g const styles = StyleSheet.create({}). 
-    Using the JavaScript object styling method, we are able to define all our styles in onwe sheet.
-    Note - its always good to define our CSS stylesheet object before we export our component.
-    In INLINE STYLING method, the styles are used as we create a componet. E.g <View style={{fontSize: "red"}}></View>
+    Using the JavaScript object styling method, we are able to define all our styles in one sheet.
+        Note - its always good to define our CSS stylesheet object before we export our component.
+    In INLINE STYLING method, the styles are used as we create a component. E.g <View style={{fontSize: "red"}}></View>
     Note - Check "View Style Props" page in R-N docs to better see how to use the style props.
     Note - In React Native, when we have too many identical styles in the particular stylesheet of a component, by using an Array containing the identical styles. We will be able to pass multiple styles to the style prop by using Array notation. This helps to keep our codes as readable and clean as possible. Whereas on the web(React js), you will have to use Multiple Classnames as usual.(Note we use this in themes too that many components will use.) E.g In your City.js file; we have style={[styles.cityName, styles.cityText]} - Two styles properties attached to one component using Array Notation
 
@@ -124,7 +126,7 @@ API Key - d14a0d4c81960381baa713ae16931d8a
 
 -Icons:
     npm install react-native-vector-icons
-    Note - if you are using expo, you dpnt have to install this package manually, it comes with Expo installation automatically.
+    Note - if you are using expo, you dont have to install this package manually, it comes with Expo installation automatically.
     Search - icons.expo.fyi on google and use import {} from  "@expo/vector-icons"
 
 -List's: 
@@ -145,16 +147,30 @@ API Key - d14a0d4c81960381baa713ae16931d8a
         #Check R-N doc's to better understand List in React Native.
 
 -Images:
-    We have 2major types of Images in R-N: a.Static/Local Images  b. Network Images c, 
+    We have 2major types of Images in R-N: a.Static/Local Images  b. Network Images c,
         Static contents are stored in the assets folder.
-        In Network images- we load the images from a uri object e.g source-={{uri: ""}}, or a uri-data object unlike Local images whereby you load it directly from your PC.
+        In Network images- we load the images from a uri object e.g source={{uri: ""}}, or a uri-data object unlike Local images whereby you load it directly from your PC.
         We majorly use the Network Images for Data Fetching.
         #Network Images -
-        a. you must set image  height set
-        b. when sizing images, you can have to set a fixed a height and width or set aspect ratio with d height and/or the width.
+        a. you must set image height 
+        b. when sizing images, you might have to set a fixed a height and width or set aspect ratio with the height and/or the width.
         c. Be mindful of storage sizes when u are using static images
+
+        <Image
+            style={styles.tinyLogo}
+            source={require('@expo/snack-static/react-native-logo.png')}
+        />
+        <Image
+            style={styles.tinyLogo}
+            source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+            }}
+        />
         
         Note - you can use the <ImageBackground> component, which has the same props as <Image>, and add whatever children to it you would like to layer on top of it.
+        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+            <Text style={styles.text}>Inside</Text>
+        </ImageBackground>
 
 -Props:
     Props is the same in React Js and React Native.
@@ -170,12 +186,13 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     In React Native we have Screens folder(containing your pages) and Components folder(containing ur reusable components).
 
 -Navigation: 
-    When u are building web apps, we use anchor tag's for navigation. The user clicks on a link or butto n to navigate to any page/screen.
+    When u are building web apps, we use anchor tag's for navigation. The user clicks on a link or button to navigate to any page/screen.
     In Mobile App's thats not possible, because we only have one screen. 
-    In React Native, we use the component called Navigator to navigate between Screens. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator. In R-N, there is no built in Navigation, so we use libraries to add navigation to our app. Its either you use a. React Navigation or b. React Native Navigation.
-    Note - React Navigation is the most popular navigation library in R-N ecosystem, React Navigation provides a straightforward navigation solution, with the ability to present common "stack" navigation and "tabbed" navigation patterns on both Android and iOS. It is built into Expo cli.(but to use React Native Navigation, you will have to eject your App from Expo or craete your app without using Expo). 
-    #visit https://reactnavigation.org/ to understand better,
-    #visit https://reactnavigation.org/docs/bottom-tab-navigator/
+    In React Native, we use the component called "Navigator" to navigate between Screens. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a "Navigator". In R-N, there is no built in Navigation, so we use libraries to add navigation to our app. Its either you use:
+        a.React Navigation OR   b.React Native Navigation.
+        Note - "React Navigation" is the most popular navigation library in R-N ecosystem, React Navigation provides a straightforward navigation solution, with the ability to present common "stack" navigation and "tabbed" navigation patterns on both Android and iOS. It is built into Expo cli.(but to use React Native Navigation, you will have to eject your App from Expo or craete your app without using Expo). 
+        #visit https://reactnavigation.org/ to understand better,
+        #visit https://reactnavigation.org/docs/bottom-tab-navigator/
         OR
 
     first, npm install @react-navigation/native 
@@ -183,16 +200,61 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     third, npm install @react-navigation/native-stack or
     third, npm install @react-navigation/bottom-tabs
 
-    Note - there are two types of Navigators u can use in your APP: a. Tab naviagtor b. Native Stack navigator
+    Note - there are two types of Navigators you can use in your APP: 
+        a.Tab navigator (most common)
+        b.Native-Stack navigator  
+        c.Drawer navigator
 
     #Customize React Navigation - https://reactnavigation.org/docs/
     a. In our Bottom Tab Navigation, we set the "Active and Inactive Color" of our Tab icons using the "screenOptions" prop in our <Tab.Navigator /> component, with the "tabBarActiveTintColor" property and we use the "tabBarIcon" prop in our <Tab.Screen /> component to focus on them.
         #Read more on props for customizing React Navigations on https://reactnavigation.org/docs/tab-based-navigation#customizing-the-appearance
     b. We Styled (set background color, fontsize etc) the HeadBar and TabBar using "tabBarStyle", "headerStyle" properties etc
-        #Read more - https://reactnavigation.org/docs/headers
+        #Configuring the header bar -  https://reactnavigation.org/docs/headers
+        a.Setting the header title   b.Using params in the title
+        c.Updating options with setOptions   
+        d.Adjusting header styles : headerStyle, backgroundColor, headerTintColor, headerTitleStyle
+        e.Sharing common options across screens   f. Replacing the title with a custom component
     
     c. Extract your Tabs into a separate file called <Tabs /> and import into App.js file.
-   
+
+    #Navigating to a new screen - https://reactnavigation.org/docs/navigating
+      a. <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate('Details')}
+         />
+      b. <Button
+          title="Go to Details... again"
+          onPress={() => navigation.push('Details')}
+      /> // we use this when working with params, id
+
+    #Navigate back to an existing screen - 
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+
+    #Navigate back multiple screens - 
+        for example, if you are several screens deep in a stack and want to dismiss all of them to go back to the first screen. In this case, we know that we want to go back to Home so we can use navigate('Home') (not push()). Another alternative would be navigation.popToTop(), which goes back to the first screen in the stack list.
+        <Button
+            title="Go back to first screen in stack"
+            onPress={() => navigation.popToTop()}
+        />
+
+    Note - 
+    a. navigation.navigate('RouteName') pushes a new route to the native stack navigator if it's not already in the stack, otherwise it jumps to that screen.
+    b. We can call navigation.push('RouteName') as many times as we like and it will continue pushing routes.
+    c. The header bar will automatically show a back button, but you can programmatically go back by calling navigation.goBack(). On Android, the hardware back button just works as expected.
+    d. You can go back to an existing screen in the stack with navigation.navigate('RouteName'), and you can go back to the first screen in the stack with navigation.popToTop().
+
+    #Passing parameters to routes -
+    let's look at how we can pass data to routes when we navigate to them.
+    There are two aspects to this:
+    a. Pass params to a route by putting them in an object as a second parameter to the navigation.navigate function: navigation.navigate('RouteName', { /* params go here */ })
+    b. Read the params in your screen component: route.params.
+    Read more on it here - https://reactnavigation.org/docs/params
+
+    #TAB NAVIGATION - 
+    Possibly the most common style of navigation in mobile apps is tab-based navigation. This can be tabs on the bottom of the screen or on the top below the header (or even instead of a header). 
+    npm install @react-navigation/bottom-tabs
+
+
 
 -DYNAMIC:
     Making our app dynamic. Changing its functionality from static to dynamic.(Making it interactive)
