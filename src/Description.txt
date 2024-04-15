@@ -189,7 +189,8 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     When u are building web apps, we use anchor tag's for navigation. The user clicks on a link or button to navigate to any page/screen.
     In Mobile App's thats not possible, because we only have one screen. 
     In React Native, we use the component called "Navigator" to navigate between Screens. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a "Navigator". In R-N, there is no built in Navigation, so we use libraries to add navigation to our app. Its either you use:
-        a.React Navigation OR   b.React Native Navigation.
+        a.React Navigation    
+        b.React Native Navigation.
         Note - "React Navigation" is the most popular navigation library in R-N ecosystem, React Navigation provides a straightforward navigation solution, with the ability to present common "stack" navigation and "tabbed" navigation patterns on both Android and iOS. It is built into Expo cli.(but to use React Native Navigation, you will have to eject your App from Expo or craete your app without using Expo). 
         #visit https://reactnavigation.org/ to understand better,
         #visit https://reactnavigation.org/docs/bottom-tab-navigator/
@@ -238,10 +239,10 @@ API Key - d14a0d4c81960381baa713ae16931d8a
         />
 
     Note - 
-    a. navigation.navigate('RouteName') pushes a new route to the native stack navigator if it's not already in the stack, otherwise it jumps to that screen.
-    b. We can call navigation.push('RouteName') as many times as we like and it will continue pushing routes.
-    c. The header bar will automatically show a back button, but you can programmatically go back by calling navigation.goBack(). On Android, the hardware back button just works as expected.
-    d. You can go back to an existing screen in the stack with navigation.navigate('RouteName'), and you can go back to the first screen in the stack with navigation.popToTop().
+      a. navigation.navigate('RouteName') pushes a new route to the native stack navigator if it's not already in the stack, otherwise it jumps to that screen.
+      b. We can call navigation.push('RouteName') as many times as we like and it will continue pushing routes.
+      c. The header bar will automatically show a back button, but you can programmatically go back by calling navigation.goBack(). On Android, the hardware back button just works as expected.
+      d. You can go back to an existing screen in the stack with navigation.navigate('RouteName'), and you can go back to the first screen in the stack with navigation.popToTop().
 
     #Passing parameters to routes -
     let's look at how we can pass data to routes when we navigate to them.
@@ -250,39 +251,79 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     b. Read the params in your screen component: route.params.
     Read more on it here - https://reactnavigation.org/docs/params
 
-    #TAB NAVIGATION - 
-    Possibly the most common style of navigation in mobile apps is tab-based navigation. This can be tabs on the bottom of the screen or on the top below the header (or even instead of a header). 
-    npm install @react-navigation/bottom-tabs
+    A. TAB NAVIGATION - 
+     Tab-based navigation is the most common style of navigation in mobile apps. This can be tabs on the bottom of the screen or on the top below the header (or even instead of a header). 
+     Installation - npm install @react-navigation/bottom-tabs
+     https://reactnavigation.org/docs/tab-based-navigation
+     https://reactnavigation.org/docs/bottom-tab-navigator
+        a. Example               b. Customizing the appearance
+        c. Add badges to icons   d. Jumping between tabs
+        e. A stack navigator for each tab
+    B. Drawer Navigation - 
+        Another common pattern in navigation is to use drawer from left (sometimes right) side for navigating between screens.
+        Installation - npm install @react-navigation/drawer
+        https://reactnavigation.org/docs/drawer-based-navigation  
+        https://reactnavigation.org/docs/status-bar
+        https://reactnavigation.org/docs/drawer-navigator
+        Note -Drawer navigation is the same as the normal Sidebar Navigation we use in web dev. You dont need to build a sidebar again in your project, just use the Drawer Navigation.
+    C. NATIVE STACK NAVIGATION
+        https://reactnavigation.org/docs/native-stack-navigator
+        Installation - npm install @react-navigation/native-stack
+
+
+
+    #Redux integration -
+      https://reactnavigation.org/docs/redux-integration
+      // Render the app container component with the provider around it
+        export default function App() {
+        return (
+            <Provider store={store}>
+            <NavigationContainer>{/* Screen configuration */}</NavigationContainer>
+            </Provider>
+        );
+        }
+
+    a.Use a component that is connected in options
+    b.Pass the state you care about as a param to the screen
+
 
 
 
 -DYNAMIC:
-    Making our app dynamic. Changing its functionality from static to dynamic.(Making it interactive)
+    Making our app dynamic. Changing its functionality from static to dynamic(Making it interactive)
     By using Hooks e.g useState() and useEffect hook()
 
 -Data Fetching:
- a. Loading States - react native Activity Indicator core component is used to display a circular loading indicator in React Native. And we can cutomize the size, color properties of the spinner. We use the useState() hook to sets its loading state. Then use conditional Rendering methods in React Native to set it.
+ a. Loading States - react native "Activity Indicator" core component is used to display a circular loading indicator in React Native. And we can customize the size, color properties of the spinner. We use the useState() hook to sets its loading state. Then use conditional Rendering methods in React Native to set it.
  b. Fetching data - 
-    #We use Netwoking as a term for data fetching in react native. Read more on RN Docs.
+    #We use "Netwoking" as a term for Data Fetching in react native. Read more on R-N Docs.
     Many mobile apps need to load resources from a remote URL. You may want to make a POST request to a REST API, or you may need to fetch a chunk of static content from another server.
     1. Using Fetch - React Native provides the Fetch API for your networking needs. Fetch will seem familiar if you have used XMLHttpRequest or other networking APIs before. You may refer to MDN's guide on Using Fetch for additional information.
     2. Using Async Await syntax
     3. Other third part libraries - The XMLHttpRequest API is built into React Native. This means that you can use third party libraries such as frisbee or axios that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
 
-    Note in this project we used Expo Location - A library that provides access to reading geolocation information, polling current location or subscribing location update events from the device. npx expo install expo-location
+    #Note - in this project we used "Expo Location" - A library that provides access to reading geolocation information, polling current location or subscribing location update events from the device. 
+    installation - npx expo install expo-location
     
-    Note in this project we kept and protected our API Keys with react-native-dotenv github repo.  npm i -D react-native-dotenv
+    #Note - in this project we kept and protected our API Keys with "react-native-dotenv" github repo.  
+    installation - npm i -D react-native-dotenv
 
 -Custom Hooks:
 
 -Buttons:
     A basic button component that should render nicely on any platform. Supports a minimal level of customization.
-    <Button
-        onPress={onPressLearnMore}
-        title="Learn More"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-    />
+        <Button
+            onPress={onPressLearnMore}
+            title="Learn More"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+        />
+    We also use <Pressable> for buttons in React Native. Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
+    <Pressable onPress={onPressFunction}>
+        <Text>I'm pressable!</Text>
+    </Pressable>
+
+
 
 -TouchableOpacity Buttons:
     We use the <TouchableOpacity> component for buttons in React js.
@@ -290,6 +331,7 @@ API Key - d14a0d4c81960381baa713ae16931d8a
     <TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={onPress}>
         <Text>Press Here</Text>
     </TouchableOpacity>
-    Note - The alternative for <TouchableOpacity> component is <TouchableWithoutFeedback> component which doesnt give a visual response.
+    #Note - The alternative for <TouchableOpacity> component is <TouchableWithoutFeedback> component which doesnt give a visual response.
 
 *Note - ensure you play with and practice extensively all the Core Components in the React Native docs to gain mastery.
+
